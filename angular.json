@@ -30,9 +30,15 @@
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "/assets/images/"
               }
             ],
             "styles": [
+              "node_modules/leaflet/dist/leaflet.css",
               "src/styles.scss",
               {
                 "input": "node_modules/@ionic/angular/css/core.css"
@@ -68,9 +74,7 @@
                 "input": "src/theme/variables.css"
               }
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js"
-            ]
+            "scripts": ["node_modules/jquery/dist/jquery.min.js"]
           },
           "configurations": {
             "production": {
@@ -102,9 +106,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo1:build",
-            "sslKey": "/etc/letsencrypt/live/vlearn.dedicated.co.za/privkey.pem",
-            "sslCert": "/etc/letsencrypt/live/vlearn.dedicated.co.za/fullchain.pem"
+            "browserTarget": "demo1:build"
           },
           "configurations": {
             "production": {
@@ -134,9 +136,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
@@ -148,9 +148,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

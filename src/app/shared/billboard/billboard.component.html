@@ -1,5 +1,3 @@
-
-
 <ion-content class="container-scroller">
   <div class="container-fluid page-body-wrapper" style="min-height: 100%;padding-top: 0%;">
     <div class="main-panel-only w-100">
@@ -16,8 +14,6 @@
 
               </div>
             </div>
-            
-
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -37,7 +33,7 @@
                       <div class="col">
                         <div class="form-group">
           
-                          <label for="mdplocation">Restriction Location ( Physical or Metaverse )</label>
+                          <label for="mdplocation">MDP Location ( Physical or Metaverse )</label>
       
                               <ion-select class="form-control" [(ngModel)]="mdplocation" formControlName="mdplocation" value="select" okText="Okay" cancelText="Dismiss" id="mdplocation">
                                 <ion-select-option value="Physical">Physical World</ion-select-option>
@@ -54,16 +50,13 @@
                       <div class="col">
                         <div class="form-group">
           
-                          <label for="mdplocation">Restriction Type</label>
+                          <label for="mdplocation">MDP Type</label>
       
                               <ion-select class="form-control" [(ngModel)]="mdptype" formControlName="mdptype" value="select" okText="Okay" cancelText="Dismiss" id="mdptype">
-                                <ion-select-option value="Person">Person</ion-select-option>
-                                <ion-select-option value="Car">Car</ion-select-option>
-                                <ion-select-option value="Truck">Truck</ion-select-option>
-                                <ion-select-option value="Bus">Bus</ion-select-option>
-                                <ion-select-option value="PersonCarTruckBus">Person,Car,Bus,Truck</ion-select-option>
-                                <ion-select-option value="Employee">Employee</ion-select-option>
-                                <ion-select-option value="All">All</ion-select-option>
+                                <ion-select-option value="Billboard">Billboard</ion-select-option>
+                                <ion-select-option value="GPS Locked Target AR">GPS Locked AR</ion-select-option>
+                                <ion-select-option value="Wide Area Target AR">Wide Area AR</ion-select-option>
+                                <ion-select-option value="GPS Drop No Target AR">GPS Drop AR</ion-select-option>
                               </ion-select>
     
                      
@@ -71,7 +64,7 @@
                       </div>
                     </div>
                     
-                    <!-- <div class="row">
+                    <div class="row">
                       <div class="col">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Height (m)</label>
@@ -86,7 +79,7 @@
                             placeholder="Width">
                         </div>
                       </div>
-                    </div> -->
+                    </div>
 
                     
                     <div class="form-group">
@@ -96,7 +89,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="schedule_id">Site</label>
+                      <label for="schedule_id">Select Schedule</label>
                         <ion-select class="form-control" [(ngModel)]="schedule_id" formControlName="schedule_id" value="select" okText="Okay" cancelText="Dismiss" id="schedule_id">
                           <ion-select-option *ngFor="let item of Scheds" [value]="item.id">{{item.name}}</ion-select-option>
                         </ion-select>
@@ -108,7 +101,7 @@
                           <ion-select-option *ngFor="let item of CActions" [value]="item.id">{{item.name}}</ion-select-option>
                         </ion-select>
                     </div>
-<!-- 
+
                     <div class="form-group">
                       <label for="peak_rate">Peak Rate (Cost per hour in ZAR)</label>
                       <input formControlName="peak_rate" type="Number" class="form-control" id="peak_rate"
@@ -119,21 +112,18 @@
                       <label for="offpeak_rate">Off Peak Rate (Cost per hour in ZAR)</label>
                       <input formControlName="offpeak_rate" type="Number" class="form-control" id="offpeak_rate"
                         placeholder="Off Peak Rate">
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                       <label for="special_rate">Special Rate (Cost per hour in ZAR)</label>
                       <input formControlName="special_rate" type="Number" class="form-control" id="special_rate"
                         placeholder="Special Rate">
-                    </div> -->
+                    </div>
 
                     <div class="form-group">
-                      <label for="content_url">Call URL</label>
-                        <!-- <ion-select class="form-control" [(ngModel)]="content_url" formControlName="content_url" value="select" okText="Okay" cancelText="Dismiss" id="content_url">
-                          <ion-select-option *ngFor="let item of Cont" [value]="item.content_url">{{item.name}}</ion-select-option>
-                        </ion-select> -->
+                      <label for="content_url">Content URL</label>
                         <ion-select class="form-control" [(ngModel)]="content_url" formControlName="content_url" value="select" okText="Okay" cancelText="Dismiss" id="content_url">
-                          <ion-select-option value="SMS and Email">SMS and Email</ion-select-option>
+                          <ion-select-option *ngFor="let item of Cont" [value]="item.content_url">{{item.name}}</ion-select-option>
                         </ion-select>
                     </div>
 

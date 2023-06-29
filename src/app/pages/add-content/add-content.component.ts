@@ -81,9 +81,7 @@ export class AddContentComponent implements OnInit {
       name: name,
       content_url: this.content_url,
       enabled: true,
-      thumbnail: false,
-      approved: false,
-      process_status: "1"
+      approved: false
     }
 
     console.log('Content', content);

@@ -4,8 +4,6 @@ export interface Addcontent {
     name: string,
     content_type: string,
     content_url: string,
-    thumbnail: boolean,
     enabled: boolean,
-    approved: boolean,
-    process_status: string
+    approved: boolean
 }

@@ -14,7 +14,6 @@ export class ContentManComponent implements OnInit {
   Cont: any;
   content_url: any;
   ctype: any = '';
-  show: boolean = true;
 
   constructor(
     private modalController: ModalController,
@@ -32,11 +31,6 @@ export class ContentManComponent implements OnInit {
     let user_id = localStorage.getItem('user_id');
     this.db.getContent(user_id);
     
-  }
-
-  shownow(){
-    console.log(this.show);
-    this.show = !this.show;
   }
 
   view_content(type, url){

@@ -1,7 +1,7 @@
 <!-- header -->
 <div class="page-header">
     <h3 class="page-title">
-        Restricted Areas [{{Billboard.length}}]
+        Media Distribution Points (MDPs) [{{Billboard.length}}]
     </h3>
 </div>
 
@@ -19,19 +19,19 @@
             </div>
         </div>
     </div> -->
-    <!-- <div class="col-md-3 stretch-card grid-margin">
+    <div class="col-md-3 stretch-card grid-margin">
         <div (click)="add_billboard()" class="card bg-gradient-dark card-img-holder text-white">
             <div class="card-body ">
                 <i class="mdi mdi-account-plus
                 mdi-24px float-left"></i>
             </div>
             <div class="card-body ">
-                <h6 class="card-text">Add Area Restriction
+                <h6 class="card-text">Add MDP
                 </h6>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 
 
@@ -52,9 +52,9 @@
                         <div class="col-sm-4">
 
                         </div>
-                        <!-- <div class="col-sm-4">
+                        <div class="col-sm-4">
                             <a style="width: 100%;" class=" btn btn-info ml-auto">Export</a>
-                        </div> -->
+                        </div>
                     </div>
                     <br>
                     <div style="height: 50vh;overflow-y:scroll;overflow-x: hidden;">
@@ -70,23 +70,23 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-6 pr-1">
-                                    <img (click)="display_cont(item.photo_url, item.id, item.name)" style="height: 20vh;object-fit: cover;" src="{{item.photo_url}}"
+                                    <img style="height: 20vh;object-fit: cover;" src="{{item.photo_url}}"
                                         class="mb-2 mw-100 w-100 rounded" alt="image">
                                     <br>
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <div style="text-align: center;"
                                                 class="align-items-center mr-4 text-muted font-weight-light">
-                                                <i class="mdi mdi mdi-account-settings icon-sm mr-2"></i>
+                                                <i class="mdi mdi mdi-motorbike icon-sm mr-2"></i>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-4">
+                                        <div class="col-4">
                                             <div style="text-align: center;"
                                                 class="align-items-center mr-4 text-muted font-weight-light">
                                                 <i class="mdi mdi mdi-car icon-sm mr-2"></i>
                                             </div>
-                                        </div> -->
-                                        <div class="col-6">
+                                        </div>
+                                        <div class="col-4">
                                             <div style="text-align: center;"
                                                 class="align-items-center mr-4 text-muted font-weight-light">
                                                 <i class="mdi mdi mdi-truck icon-sm mr-2"></i>
@@ -95,24 +95,22 @@
 
                                     </div>
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <div style="text-align: center;"
                                                 class="align-items-center mr-4 text-muted font-weight-light">
-                                                <span style="font-size: small;">PEOPLE</span>
-                                                <div style="font-size: small;">{{Persons}}</div>
+                                                <span style="font-size: small;">0</span>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-4">
+                                        <div class="col-4">
                                             <div style="text-align: center;"
                                                 class="align-items-center mr-4 text-muted font-weight-light">
-                                                <span style="font-size: small;">CARS</span>
+                                                <span style="font-size: small;">0</span>
                                             </div>
-                                        </div> -->
-                                        <div class="col-6">
+                                        </div>
+                                        <div class="col-4">
                                             <div style="text-align: center;"
                                                 class="align-items-center mr-4 text-muted font-weight-light">
-                                                <span style="font-size: small;">VEHICLES</span>
-                                                <div style="font-size: small;">{{Vehicles}}</div>
+                                                <span style="font-size: small;">0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +143,7 @@
                                                     </td>
                                                 </tr>
 
-                                                <!-- <tr>
+                                                <tr>
                                                     <td>
                                                         LSM
                                                     </td>
@@ -171,26 +169,26 @@
                                                     <td>
                                                         ZAR{{item.offpeak_rate}} (P/Hour)
                                                     </td>
-                                                </tr> -->
+                                                </tr>
 
-                                                <!-- <tr>
+                                                <tr>
                                                     <td>
                                                         Special Rate
                                                     </td>
                                                     <td>
                                                         ZAR{{item.special_rate}} (P/Hour)
                                                     </td>
-                                                </tr> -->
+                                                </tr>
 
                                                 <tr>
                                                     <td>
-                                                        Restriction Type
+                                                        MDP Type
                                                     </td>
                                                     <td>
-                                                        Person, Car & Truck
+                                                        {{item.mdptype}}
                                                     </td>
                                                 </tr>
-<!-- 
+
                                                 <tr>
                                                     <td>
                                                         MDP Location
@@ -198,7 +196,7 @@
                                                     <td>
                                                         {{item.mdplocation}}
                                                     </td>
-                                                </tr> -->
+                                                </tr>
 
                                                 <tr>
                                                     <td></td>
@@ -239,24 +237,23 @@
     <div class="col-md-6 stretch-card grid-margin">
         <div class="card">
             <div class="card-body">
-                <div class="col-sm-12" style="text-align: center;">
-                    <ion-button class="col-sm-4" (click)="refreshPoly()" color="warning">Reset Polygon</ion-button>
-                    <!-- <ion-button (click)="Edit()" color="medium" [disabled]="!isPolygonDrawn">Edit Area</ion-button> -->
-                    <ion-button class="col-sm-4" (click)="savePoly()" color="primary" [disabled]="!isPolygonDrawn">Save Polygon</ion-button>
-                    <!-- <ion-button (click)="copyCoords()" color="primary" [disabled]="!isPolygonDrawn">Save Area</ion-button> -->
-                    <!-- <ion-button (click)="test()" color="danger">Test</ion-button> -->
+                <div class="row">
+                    <div class="col-4" (click)="change_style('DarkMap')">
+                        <img style="height: 50px;object-fit: cover;" src="assets/images/maps/dark-map.png"
+                            class="mb-2 mw-100 w-100 rounded" alt="image">
+                    </div>
+                    <div class="col-4 " (click)="change_style('hybrid')">
+                        <img style="height: 50px;object-fit: cover;" src="assets/images/maps/Satellite-map.png"
+                            class="mb-2 mw-100 w-100 rounded" alt="image">
+                    </div>
+                    <div class="col-4 " (click)="change_style('2DMap')">
+                        <img style="height: 50px;object-fit: cover;" src="assets/images/maps/2D-Map.png"
+                            class="mb-2 mw-100 w-100 rounded" alt="image">
+                    </div>
                 </div>
-        
-                <div class="canv">
-                    <!-- <img class="image" [src]="content_url" width="100%"/> -->
-                    <canvas
-                        id="canvasID"
-
-                        
-                    ></canvas>
+                <div style="height: 50vh;" id="map_canvas_locations">
                 </div>
             </div>
-            <ion-button (click)="pointsAreReady()" color="default" >Done Drawing Polygon</ion-button>
 
         </div>
 

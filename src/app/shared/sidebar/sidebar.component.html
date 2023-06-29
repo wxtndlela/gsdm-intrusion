@@ -1,8 +1,12 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
-
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
-      <a class="nav-link" routerLink="/home" routerLinkActive #dashboard="routerLinkActive">
+    <li class="nav-item" [ngClass]="{ active: dashboard.isActive }">
+      <a
+        class="nav-link"
+        routerLink="/home"
+        routerLinkActive
+        #dashboard="routerLinkActive"
+      >
         <span class="menu-title">Home</span>
         <i class="mdi mdi-home menu-icon"></i>
       </a>
@@ -24,103 +28,345 @@
         </ul>
       </div>
     </li> -->
-    <li *ngIf="BuyerGuard" class="nav-item" [ngClass]="{ 'active': locations.isActive }">
-      <a class="nav-link" routerLink="locations" routerLinkActive #locations="routerLinkActive">
-        <span class="menu-title">Restricted Areas</span>
-        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-      </a>
-    </li>
+    <div
+      *ngIf="
+        global.userRole == 'User' ||
+        global.userRole == 'Administrator' ||
+        global.userRole == 'Road Inspection'
+      "
+    >
+      <div class="seperator">ROAD INSPECTION</div>
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: segments.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="segments"
+          routerLinkActive
+          #segments="routerLinkActive"
+        >
+          <span class="menu-title">Segments/Links</span>
+          <i class="mdi mdi-road-variant menu-icon"></i>
+        </a>
+      </li>
 
-    <li class="nav-item" [ngClass]="{ 'active': billboards.isActive }">
-      <a class="nav-link" routerLink="billboards" routerLinkActive #billboards="routerLinkActive">
-        <span class="menu-title">Reports</span>
-        <i class="mdi mdi-bulletin-board
-        menu-icon"></i>
-      </a>
-    </li>
+      <!-- <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: assessments.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="assessments"
+          routerLinkActive
+          #assessments="routerLinkActive"
+        >
+          <span class="menu-title">Assessments</span>
+          <i class="mdi mdi-clipboard-check menu-icon"></i>
+        </a>
+      </li> -->
 
-    <li class="nav-item" [ngClass]="{ 'active': proof_of_flight.isActive }">
-      <a class="nav-link" routerLink="proof-of-flight" routerLinkActive #proof_of_flight="routerLinkActive">
-        <span class="menu-title">Employee Tracking</span>
-        <i class="mdi mdi-airplane-takeoff
-        menu-icon"></i>
-      </a>
-    </li>
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: vci_processing.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="vci-processing"
+          routerLinkActive
+          #vci_processing="routerLinkActive"
+        >
+          <span class="menu-title">VCI Processing</span>
+          <i class="mdi mdi-chemical-weapon menu-icon"></i>
+        </a>
+      </li>
 
-    <!-- <li class="nav-item" [ngClass]="{ 'active': campaigns_call_to_action.isActive }">
-      <a class="nav-link" routerLink="campaigns-call-to-action" routerLinkActive #campaigns_call_to_action="routerLinkActive">
-        <span class="menu-title">Campaigns Call-To-Action</span>
-        <i class="mdi mdi-bell-check-outline
-        menu-icon"></i>
-      </a>
-    </li>
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: ri_reports.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="ri-reports"
+          routerLinkActive
+          #ri_reports="routerLinkActive"
+        >
+          <span class="menu-title">Reports</span>
+          <i class="mdi mdi-chart-line menu-icon"></i>
+        </a>
+      </li>
 
-    <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': schedules.isActive }">
-      <a class="nav-link" routerLink="schedules" routerLinkActive #schedules="routerLinkActive">
-        <span class="menu-title">Schedule Management</span>
-        <i class="mdi mdi-calendar
-        menu-icon"></i>
-      </a>
-    </li> -->
+      <button class="btn-green"
+        *ngIf="isInternetAvailable"
+      
+        expand="block"
+        (click)="startSync()"
+        >Sync Offline Data</button
+      >
+    </div>
 
-    <li class="nav-item" [ngClass]="{ 'active': content_man.isActive }">
-      <a class="nav-link" routerLink="content-man" routerLinkActive #content_man="routerLinkActive">
-        <span class="menu-title">Restricted Area Footage</span>
-        <i class="mdi mdi-camera-iris
-        menu-icon"></i>
-      </a>
-    </li>
+    <div
+      *ngIf="
+        global.userRole == 'User' ||
+        global.userRole == 'Administrator' ||
+        global.userRole == 'Street Furniture'
+      "
+    >
+      <div class="seperator">STREET FURNITURE</div>
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: furniture_man.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="furniture-man"
+          routerLinkActive
+          #furniture_man="routerLinkActive"
+        >
+          <span class="menu-title">Furniture Management</span>
+          <i class="mdi mdi-traffic-light menu-icon"></i>
+        </a>
+      </li>
 
-    <!-- <li class="nav-item" [ngClass]="{ 'active': media_player.isActive }">
-      <a class="nav-link" routerLink="media-player" routerLinkActive #media_player="routerLinkActive">
-        <span class="menu-title">Billboard Media Player</span>
-        <i class="mdi mdi-video-vintage
-        menu-icon"></i>
-      </a>
-    </li> -->
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: sf_reports.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="sf-reports"
+          routerLinkActive
+          #sf_reports="routerLinkActive"
+        >
+          <span class="menu-title">Reports</span>
+          <i class="mdi mdi-chart-line menu-icon"></i>
+        </a>
+      </li>
+    </div>
 
-    <li class="nav-item" [ngClass]="{ 'active': accounts.isActive }">
-      <a class="nav-link" routerLink="accounts" routerLinkActive #accounts="routerLinkActive">
-        <span class="menu-title">Drone-Service Accounts</span>
-        <i class="mdi mdi-contacts menu-icon"></i>
-      </a>
-    </li>
-    
-    <!-- <li class="nav-item" [ngClass]="{ 'active': proposals.isActive }">
-      <a class="nav-link" routerLink="proposals" routerLinkActive #proposals="routerLinkActive">
-        <span class="menu-title">Proposals</span>
-        <i class="mdi mdi-file-find menu-icon"></i>
-      </a>
-    </li> -->
-    <!-- <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': jobs.isActive }">
-      <a class="nav-link" routerLink="jobs" routerLinkActive #jobs="routerLinkActive">
-        <span class="menu-title">New Jobs</span>
-        <i class="mdi mdi-briefcase menu-icon"></i>
-      </a>
-    </li> -->
-    <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': tickets.isActive }">
-      <a class="nav-link" routerLink="tickets" routerLinkActive #tickets="routerLinkActive">
-        <span class="menu-title">Ground Team Dispatch</span>
-        <i class="mdi mdi-ticket menu-icon"></i>
-      </a>
-    </li>
-    
-    
-    <!-- <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': products_services.isActive }">
-      <a class="nav-link" routerLink="products-services" routerLinkActive #products_services="routerLinkActive">
-        <span class="menu-title">Products & Services</span>
-        <i class="mdi mdi-tag-text-outline
-        menu-icon"></i>
-      </a>
-    </li> -->
-    
-    <!-- <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': service_accounts.isActive }">
-      <a class="nav-link" routerLink="service-accounts" routerLinkActive #service_accounts="routerLinkActive">
-        <span class="menu-title">Service Accounts</span>
-        <i class="mdi mdi-folder-account
-        menu-icon"></i>
-      </a>
-    </li> -->
+    <div
+      *ngIf="
+        global.userRole == 'User' ||
+        global.userRole == 'Administrator' ||
+        global.userRole == 'Vehicle Counting'
+      "
+    >
+      <div class="seperator">VEHICLE COUNTING</div>
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: vcount_man.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="vcount-man"
+          routerLinkActive
+          #vcount_man="routerLinkActive"
+        >
+          <span class="menu-title">VCount Management</span>
+          <i class="mdi mdi-car-side menu-icon"></i>
+        </a>
+      </li>
 
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: vc_reports.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="vc-reports"
+          routerLinkActive
+          #vc_reports="routerLinkActive"
+        >
+          <span class="menu-title">Reports</span>
+          <i class="mdi mdi-chart-line menu-icon"></i>
+        </a>
+      </li>
+    </div>
+
+    <div
+      *ngIf="
+        global.userRole == 'User' ||
+        global.userRole == 'Administrator' ||
+        global.userRole == 'Change Detection'
+      "
+    >
+      <div class="seperator">CHANGE DETECTION</div>
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: afforestation.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="afforestation"
+          routerLinkActive
+          #afforestation="routerLinkActive"
+        >
+          <span class="menu-title">Afforestation</span>
+          <i class="mdi mdi-pine-tree menu-icon"></i>
+        </a>
+      </li>
+
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: deforestation.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="deforestation"
+          routerLinkActive
+          #deforestation="routerLinkActive"
+        >
+          <span class="menu-title">Deforestation</span>
+          <i class="mdi mdi-pine-tree-box menu-icon"></i>
+        </a>
+      </li>
+
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: construction.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="construction"
+          routerLinkActive
+          #construction="routerLinkActive"
+        >
+          <span class="menu-title">Construction</span>
+          <i class="mdi mdi-hospital-building menu-icon"></i>
+        </a>
+      </li>
+
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: demolitions.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="demolitions"
+          routerLinkActive
+          #demolitions="routerLinkActive"
+        >
+          <span class="menu-title">Demolitions</span>
+          <i class="mdi mdi-chip menu-icon"></i>
+        </a>
+      </li>
+
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: rubble.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="rubble"
+          routerLinkActive
+          #rubble="routerLinkActive"
+        >
+          <span class="menu-title">Rubble</span>
+          <i class="mdi mdi-forklift menu-icon"></i>
+        </a>
+      </li>
+
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: vegetation.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="vegetation"
+          routerLinkActive
+          #vegetation="routerLinkActive"
+        >
+          <span class="menu-title">Vegetation</span>
+          <i class="mdi mdi-tree menu-icon"></i>
+        </a>
+      </li>
+
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: cd_reports.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="cd-reports"
+          routerLinkActive
+          #cd_reports="routerLinkActive"
+        >
+          <span class="menu-title">Reports</span>
+          <i class="mdi mdi-chart-line menu-icon"></i>
+        </a>
+      </li>
+    </div>
+
+    <div
+      *ngIf="
+        global.userRole == 'User' ||
+        global.userRole == 'Administrator' ||
+        global.userRole == 'Intrusion Detection'
+      "
+    >
+      <div class="seperator">INTRUSIONS MANAGEMENT</div>
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: site_man.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="site-man"
+          routerLinkActive
+          #site_man="routerLinkActive"
+        >
+          <span class="menu-title">Site Management</span>
+          <i class="mdi mdi-close-outline menu-icon"></i>
+        </a>
+      </li>
+
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: site_footage.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="site-footage"
+          routerLinkActive
+          #site_footage="routerLinkActive"
+        >
+          <span class="menu-title">Site Footage</span>
+          <i class="mdi mdi-file-video menu-icon"></i>
+        </a>
+      </li>
+
+      <li
+        *ngIf="BuyerGuard"
+        class="nav-item"
+        [ngClass]="{ active: intr_reports.isActive }"
+      >
+        <a
+          class="nav-link"
+          routerLink="intr-reports"
+          routerLinkActive
+          #intr_reports="routerLinkActive"
+        >
+          <span class="menu-title">Reports</span>
+          <i class="mdi mdi-chart-line menu-icon"></i>
+        </a>
+      </li>
+    </div>
   </ul>
 </nav>
