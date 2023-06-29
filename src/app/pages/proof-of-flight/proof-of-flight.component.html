@@ -1,0 +1,204 @@
+<!-- header -->
+<div class="page-header">
+    <h3 class="page-title">
+        Employee Tracking
+    </h3>
+</div>
+
+<!-- cards -->
+<div class="row">
+    <!-- <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-dark card-img-holder text-white">
+            <div class="card-body ">
+                <i class="mdi mdi-file-document
+                mdi-24px float-left"></i>
+            </div>
+            <div class="card-body ">
+                <h6 class="card-text">Add proposal
+                </h6>
+            </div>
+        </div>
+    </div> -->
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-dark card-img-holder text-white">
+            <div class="card-body ">
+                <i class="mdi mdi-account-plus
+                mdi-24px float-left"></i>
+            </div>
+            <div class="card-body ">
+                <h6 class="card-text">Add Employee
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-dark card-img-holder text-white">
+            <div class="card-body ">
+                <i class="mdi mdi-deskphone
+                mdi-24px float-left"></i>
+            </div>
+            <div class="card-body ">
+                <h6 class="card-text">Address Book
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 stretch-card grid-margin">
+        <div class="card bg-gradient-dark card-img-holder text-white">
+            <div class="card-body ">
+                <i class="mdi mdi-bullhorn
+                mdi-24px float-left"></i>
+            </div>
+            <div class="card-body ">
+                <h6 class="card-text">Send Mass Communications
+                </h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- table header -->
+<div class="row">
+    <div class="col-6 ">
+          <div class="page-header p-0">
+            <div class="search-field d-none d-md-block">
+                <form class="d-flex align-items-center h-100" action="#">
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                    </div>
+                    <input type="text" class="form-control bg-transparent border-0" placeholder="Search Employees">
+                  </div>
+                </form>
+              </div>
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <span></span>Results (09)
+                </li>
+              </ul> 
+            </nav>
+          </div>
+    </div>
+    <div class="col-3 ">
+        <a style="width: 100%;" class=" btn btn-info ml-auto">Export</a>
+    </div>
+</div>
+
+<!-- table -->
+<div class="row">
+    <div class="col-9 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Recent Employee Activity</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Employee
+                                </th>
+                                <th>
+                                    Department
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Last Tracked
+                                </th>
+                                <th>
+                                    Tracking ID
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/faces/f1.jpeg" class="mr-2" alt="image">
+                                    Bongumusa Simelane
+                                </td>
+                                <td>
+                                    Engineering
+                                </td>
+                                <td>
+                                    <label class="badge badge-gradient-success">PRESENT</label>
+                                </td>
+                                <td>
+                                    Dec 5, 2017
+                                </td>
+                                <td>
+                                    WD-12345
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/faces/face3.jpg" class="mr-2" alt="image">
+                                    Ryno Jacobs
+                                </td>
+                                <td>
+                                    IT & Technology
+                                </td>
+                                <td>
+                                    <label class="badge badge-gradient-warning">NOT PRESENT</label>
+                                </td>
+                                <td>
+                                    Oct 12, 2022
+                                </td>
+                                <td>
+                                    WD-12346
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/faces/f2.jpeg" class="mr-2" alt="image">
+                                    Phiwo Nkosi
+                                </td>
+                                <td>
+                                    Innovation
+                                </td>
+                                <td>
+                                    <label class="badge badge-gradient-info">PENDING</label>
+                                </td>
+                                <td>
+                                    Mar 11, 2022
+                                </td>
+                                <td>
+                                    WD-12347
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="assets/images/faces/f3.jpg" class="mr-2" alt="image">
+                                    Bongumusa Mtsweni
+                                </td>
+                                <td>
+                                    Road Inspection
+                                </td>
+                                <td>
+                                    <label class="badge badge-gradient-danger">BREACH</label>
+                                </td>
+                                <td>
+                                    Nov 3, 2022
+                                </td>
+                                <td>
+                                    WD-12348
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <a style="width: 100%;" class="mb-2 btn btn-info ml-auto">Check Breaches</a>
+                <a style="width: 100%;" class="mb-2 btn btn-info ml-auto">Check Attendance</a>
+                <a style="width: 100%;" class="mb-2 btn btn-info ml-auto">Live Location</a>
+                <a style="width: 100%;" class="mb-2 btn btn-info ml-auto">Point of Entry</a>
+            </div>
+        </div>
+    </div>
+</div>

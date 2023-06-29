@@ -1,0 +1,126 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+      <a class="nav-link" routerLink="/home" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Home</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+    <!-- <li class="nav-item"
+      [ngClass]="{'active' : accordions.isActive || buttons.isActive || badges.isActive || breadcrumbs.isActive || dropdowns.isActive || modals.isActive || notifications.isActive || progressbar.isActive || pagination.isActive || tabs.isActive || typography.isActive || tooltips.isActive }">
+      <a class="nav-link" (click)="uiBasicCollapsed = !uiBasicCollapsed" [attr.aria-expanded]="uiBasicCollapsed"
+        aria-controls="ui-basic">
+        <span class="menu-title">Locations</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-basic" [ngbCollapse]="!uiBasicCollapsed">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="locations/landloards" routerLinkActive="active"
+              #accordions="routerLinkActive">Landloard managements</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="locations/billboards" routerLinkActive="active"
+              #buttons="routerLinkActive">Billboards</a></li>
+        </ul>
+      </div>
+    </li> -->
+    <li *ngIf="BuyerGuard" class="nav-item" [ngClass]="{ 'active': locations.isActive }">
+      <a class="nav-link" routerLink="locations" routerLinkActive #locations="routerLinkActive">
+        <span class="menu-title">Restricted Areas</span>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+      </a>
+    </li>
+
+    <li class="nav-item" [ngClass]="{ 'active': billboards.isActive }">
+      <a class="nav-link" routerLink="billboards" routerLinkActive #billboards="routerLinkActive">
+        <span class="menu-title">Reports</span>
+        <i class="mdi mdi-bulletin-board
+        menu-icon"></i>
+      </a>
+    </li>
+
+    <li class="nav-item" [ngClass]="{ 'active': proof_of_flight.isActive }">
+      <a class="nav-link" routerLink="proof-of-flight" routerLinkActive #proof_of_flight="routerLinkActive">
+        <span class="menu-title">Employee Tracking</span>
+        <i class="mdi mdi-airplane-takeoff
+        menu-icon"></i>
+      </a>
+    </li>
+
+    <!-- <li class="nav-item" [ngClass]="{ 'active': campaigns_call_to_action.isActive }">
+      <a class="nav-link" routerLink="campaigns-call-to-action" routerLinkActive #campaigns_call_to_action="routerLinkActive">
+        <span class="menu-title">Campaigns Call-To-Action</span>
+        <i class="mdi mdi-bell-check-outline
+        menu-icon"></i>
+      </a>
+    </li>
+
+    <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': schedules.isActive }">
+      <a class="nav-link" routerLink="schedules" routerLinkActive #schedules="routerLinkActive">
+        <span class="menu-title">Schedule Management</span>
+        <i class="mdi mdi-calendar
+        menu-icon"></i>
+      </a>
+    </li> -->
+
+    <li class="nav-item" [ngClass]="{ 'active': content_man.isActive }">
+      <a class="nav-link" routerLink="content-man" routerLinkActive #content_man="routerLinkActive">
+        <span class="menu-title">Restricted Area Footage</span>
+        <i class="mdi mdi-camera-iris
+        menu-icon"></i>
+      </a>
+    </li>
+
+    <!-- <li class="nav-item" [ngClass]="{ 'active': media_player.isActive }">
+      <a class="nav-link" routerLink="media-player" routerLinkActive #media_player="routerLinkActive">
+        <span class="menu-title">Billboard Media Player</span>
+        <i class="mdi mdi-video-vintage
+        menu-icon"></i>
+      </a>
+    </li> -->
+
+    <li class="nav-item" [ngClass]="{ 'active': accounts.isActive }">
+      <a class="nav-link" routerLink="accounts" routerLinkActive #accounts="routerLinkActive">
+        <span class="menu-title">Drone-Service Accounts</span>
+        <i class="mdi mdi-contacts menu-icon"></i>
+      </a>
+    </li>
+    
+    <!-- <li class="nav-item" [ngClass]="{ 'active': proposals.isActive }">
+      <a class="nav-link" routerLink="proposals" routerLinkActive #proposals="routerLinkActive">
+        <span class="menu-title">Proposals</span>
+        <i class="mdi mdi-file-find menu-icon"></i>
+      </a>
+    </li> -->
+    <!-- <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': jobs.isActive }">
+      <a class="nav-link" routerLink="jobs" routerLinkActive #jobs="routerLinkActive">
+        <span class="menu-title">New Jobs</span>
+        <i class="mdi mdi-briefcase menu-icon"></i>
+      </a>
+    </li> -->
+    <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': tickets.isActive }">
+      <a class="nav-link" routerLink="tickets" routerLinkActive #tickets="routerLinkActive">
+        <span class="menu-title">Ground Team Dispatch</span>
+        <i class="mdi mdi-ticket menu-icon"></i>
+      </a>
+    </li>
+    
+    
+    <!-- <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': products_services.isActive }">
+      <a class="nav-link" routerLink="products-services" routerLinkActive #products_services="routerLinkActive">
+        <span class="menu-title">Products & Services</span>
+        <i class="mdi mdi-tag-text-outline
+        menu-icon"></i>
+      </a>
+    </li> -->
+    
+    <!-- <li *ngIf="OwnerGuard" class="nav-item" [ngClass]="{ 'active': service_accounts.isActive }">
+      <a class="nav-link" routerLink="service-accounts" routerLinkActive #service_accounts="routerLinkActive">
+        <span class="menu-title">Service Accounts</span>
+        <i class="mdi mdi-folder-account
+        menu-icon"></i>
+      </a>
+    </li> -->
+
+  </ul>
+</nav>
